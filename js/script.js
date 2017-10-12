@@ -10,8 +10,10 @@ for (var i = 0; i <= 100; i++) {
 var button = document.getElementById('run');
 button.addEventListener('click', function () {
   var text = document.getElementById('zetOm').value;
-  var string = text.replace(/[^A-Z0-9]/ig, "").toLowerCase();
+  var string = text.toLowerCase();
+  string = string.replace(/[0-9-\/\\^$%@*+?.()|[\]{}]/g, '');
   var checkString = string.split('').reverse().join('');
+  console.log(checkString);
   if (string == checkString) {
     document.getElementById('answer').innerHTML = 'Het is een palindroom';
   } else {
